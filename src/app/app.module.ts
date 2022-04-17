@@ -10,6 +10,10 @@ import { LoginComponent } from './login//login.component';
 import { RegisterComponent } from './register/register/register.component';
 import { HomeComponent } from './home/home/home.component';
 import { AlertComponent } from './component/alert/alert.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ErrorComponent } from './error/error.component';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +21,17 @@ import { AlertComponent } from './component/alert/alert.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    AlertComponent
+    AlertComponent,
+    EmployeeComponent,
+    ErrorComponent,
+    UpdateEmployeeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [fakeBackendProvider],
   bootstrap: [AppComponent]

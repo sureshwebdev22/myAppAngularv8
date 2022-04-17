@@ -1,7 +1,9 @@
 <!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-  <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/">Home</a>
+<nav class="navbar navbar-expand " style="background-color: rgb(112, 171, 102);" *ngIf="currentUser">
+  <div class="navbar-nav" style="color: black;">
+      <a class="nav-item nav-link" style="color: black; " routerLink="/">Home</a>
+      
+      <a class="nav-item nav-link" style="color: black; " routerLink="/employee">Employee</a>
       <a class="nav-item nav-link" (click)="logout()">Logout</a>
   </div>
 </nav>
@@ -10,22 +12,23 @@
 <div class="jumbotron">
   <div class="container">
       <div class="row">
-          <div class="col-sm-6 offset-sm-3">
-              app componenet  
+          <div class="col-sm-12">
               
               <router-outlet></router-outlet>
               <app-alert></app-alert>
-          </div>
+          </div> 
       </div>
   </div>
 </div>
 
 <!-- credits -->
 <div class="text-center">
-  <p>
+  
+  Please reach me over sureshwebdev22@gmail.com
+ <!-- <p>
       <a href="https://jasonwatmore.com/post/2019/06/10/angular-8-user-registration-and-login-example-tutorial" target="_top">Angular 8 - User Registration and Login Example & Tutorial</a>
   </p>
   <p>
       <a href="https://jasonwatmore.com" target="_top">JasonWatmore.com</a>
-  </p>
+  </p>-->
 </div>

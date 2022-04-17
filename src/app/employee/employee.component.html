@@ -1,0 +1,107 @@
+  <div class="row">
+  <div class="col-sm-3">
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" >
+
+      <div class="form-group">
+        <label for="employeename"> Employee Name</label>
+        <input type="text" formControlName="employeename" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && employeeFormControl.employeename.errors }" />
+        <div *ngIf="submitted && employeeFormControl.employeename.errors" class="invalid-feedback">
+          <div *ngIf="employeeFormControl.employeename.errors.required">Employee Name is required</div>
+        </div>
+        <div *ngIf="error_object">{{error_object.error.message}}</div>
+      </div>
+
+      <div class="form-group">
+        <label for="designation">Designation</label>
+        <select formControlName="designation" class="form-control"
+          [ngClass]="{ 'is-invalid':submitted && employeeFormControl.designation.errors }">
+          <option *ngFor="let job of designation">{{job}}</option>
+        </select>
+        <div *ngIf="submitted && employeeFormControl.designation.errors" class="invalid-feedback">
+
+          <div *ngIf="submitted && employeeFormControl.designation.errors.customerror">
+            {{employeeFormControl.designation.errors.customerror.error}}</div>
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Adress</label>
+        <input type="text" formControlName="address" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && employeeFormControl.address.errors }" />
+        <div *ngIf="submitted && employeeFormControl.address.errors" class="invalid-feedback">
+          <div *ngIf="employeeFormControl.address.errors.required">Address is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country</label>
+        <select formControlName="country" class="form-control"
+          [ngClass]="{ 'is-invalid':submitted && employeeFormControl.country.errors }">
+          <option *ngFor="let country1 of countryList">{{country1}}</option>
+        </select>
+        <div *ngIf="submitted && employeeFormControl.country.errors" class="invalid-feedback">
+          <div *ngIf="submitted && employeeFormControl.country.errors.customerror">
+            {{employeeFormControl.country.errors.customerror.error}}</div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <button class="btn btn-primary"> submit</button>
+        <!--  <input type="submit" formControlNmae="employeesubmit" class="btn btn-primary">-->
+      </div>
+      <!-- <div  class="form-group" *ngIf="employee">
+        <table class="table" border="1" style="background-color: white;">
+            <thead>
+                <tr>
+                  <th scope="col">EmployeeName</th>
+                  <th scope="col">Designation</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Country</th>
+                </tr>
+              </thead>  
+              <tbody>          <tr ><td>{{employee.employeename}}</td> <td>{{employee.designation}}</td> <td>{{employee.address}}</td> <td>{{employee.country}}</td></tr>
+                </tbody>
+    </table>
+    </div>-->
+
+
+
+
+    </form>
+  </div>
+  <div class="col-sm-9">
+
+    <div *ngIf="employees">
+      <div style="text-align: center;">
+        <H4> List of Employees</H4>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">EmployeeName</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Address</th>
+            <th scope="col">Country</th>
+            <th scope="col">Update/Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees | paginate: { itemsPerPage: count, currentPage: p }">
+            <td>{{employee.employeename}}</td>
+            <td>{{employee.designation}}</td>
+            <td>{{employee.address}}</td>
+            <td>{{employee.country}}</td>
+            
+            <td><button (click)="updateEmployee(employee)" class='btn btn-info'>Update</button> <button class="btn btn-danger" (click)="deleteEmployee(employee)" >Delete</button> </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-right">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+  </div>

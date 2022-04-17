@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
           .pipe(first())
           .subscribe(
               data => {
-                  alert("success data login.ts->"+data)
+                //  alert("success data login.ts->"+data)
                   console.log("success data login.ts->"+data)
                  
                   

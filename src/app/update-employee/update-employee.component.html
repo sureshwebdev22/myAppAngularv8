@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-sm"></div>
+  <div class="col-sm">  
+ <h3 ><p style="text-align: center;">Employee Update</p></h3>
+
+
+    <div *ngIf="update_flag" style="background-color: rgb(204, 236, 204);"><p style="text-align: center;">Record Updated Successfully</p></div>
+
+ <br>
+
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" >
+
+    <div class="form-group">
+        <label for="empid"> Employee Id</label>
+        <input type="text" formControlName="empid" class="form-control" readonly />
+        <!--<div *ngIf="submitted && employeeFormControl.employeename.errors" class="invalid-feedback">
+          <div *ngIf="employeeFormControl.employeename.errors.required">Employee Name is required</div>
+        </div>
+        <div *ngIf="error_object">{{error_object.error.message}}</div>-->
+      </div>
+
+    <div class="form-group">
+      <label for="employeename"> Employee Name</label>
+      <input type="text" formControlName="employeename" class="form-control" />
+      <!--<div *ngIf="submitted && employeeFormControl.employeename.errors" class="invalid-feedback">
+        <div *ngIf="employeeFormControl.employeename.errors.required">Employee Name is required</div>
+      </div>
+      <div *ngIf="error_object">{{error_object.error.message}}</div>-->
+    </div>
+
+    <div class="form-group">
+      <label for="designation">Designation</label>
+      <select formControlName="designation" class="form-control">
+        <option *ngFor="let job of designation" [selected]="job === employee.designation">{{job}}</option>
+      </select>
+      <!--<div *ngIf="submitted && employeeFormControl.designation.errors" class="invalid-feedback">
+
+        <div *ngIf="submitted && employeeFormControl.designation.errors.customerror">
+          {{employeeFormControl.designation.errors.customerror.error}}</div>
+
+      </div>-->
+    </div>
+
+    <div class="form-group">
+      <label for="address">Adress</label>
+      <input type="text" formControlName="address" class="form-control" />
+    <!--  <div *ngIf="submitted && employeeFormControl.address.errors" class="invalid-feedback">
+        <div *ngIf="employeeFormControl.address.errors.required">Address is required</div>
+      </div>-->
+    </div>
+
+    <div class="form-group">
+      <label for="country">Country</label>
+      <select formControlName="country" class="form-control">
+        <option *ngFor="let country1 of countryList" [selected]="country1 === employee.country">{{country1}}</option>
+      </select>
+    <!--  <div *ngIf="submitted && employeeFormControl.country.errors" class="invalid-feedback">
+        <div *ngIf="submitted && employeeFormControl.country.errors.customerror">
+          {{employeeFormControl.country.errors.customerror.error}}</div>
+      </div>-->
+    </div>
+
+
+    <div class="form-group">
+      <button class="btn btn-primary"> Update</button>
+      <!--  <input type="submit" formControlNmae="employeesubmit" class="btn btn-primary">-->
+    </div>
+    <!-- <div  class="form-group" *ngIf="employee">
+      <table class="table" border="1" style="background-color: white;">
+          <thead>
+              <tr>
+                <th scope="col">EmployeeName</th>
+                <th scope="col">Designation</th>
+                <th scope="col">Address</th>
+                <th scope="col">Country</th>
+              </tr>
+            </thead>  
+            <tbody>          <tr ><td>{{employee.employeename}}</td> <td>{{employee.designation}}</td> <td>{{employee.address}}</td> <td>{{employee.country}}</td></tr>
+              </tbody>
+  </table>
+  </div>-->
+
+
+
+
+  </form>
+  </div>
+  <div class="col-sm">
+</div>
+  </div>
+

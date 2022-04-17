@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { AlertService } from '../../_services/alert.service';
@@ -13,12 +13,12 @@ import { UserService } from '../../_services/user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm: FormGroup;
+    registerForm: FormGroup;
     loading = false;
     submitted = false;
-
+    // firstName;
     constructor(
-        private formBuilder: FormBuilder,
+      //  private formBuilder: FormBuilder,
         private router: Router,
         private authenticationService: AuthenticationService,
         private userService: UserService,
@@ -31,12 +31,23 @@ export class RegisterComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.registerForm = this.formBuilder.group({
+        this.registerForm= new FormGroup({
+            firstName: new FormControl('',Validators.required),
+            lastName: new FormControl('',Validators.required),
+            username: new FormControl('',Validators.required),
+            password: new FormControl('',[Validators.required,Validators.minLength(7)])
+       
+       
+
+        });        
+        
+    
+     /*   this.registerForm = this.formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             username: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(6)]]
-        });
+        });*/
     }
 
     // convenience getter for easy access to form fields
@@ -50,6 +61,7 @@ export class RegisterComponent implements OnInit {
 
         // stop here if form is invalid
         if (this.registerForm.invalid) {
+            alert('invalid register form')
             return;
         }
 
