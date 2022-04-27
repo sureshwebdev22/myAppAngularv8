@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EmployeeComponent } from './employee/employee.component';
+import { EmployeesearchComponent } from './employeesearch/employeesearch.component';
+//import { EmployeesearchComponent } from './employee/employeesearch/employeesearch.component';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -12,11 +14,15 @@ const routes: Routes = [ { path: '', component: HomeComponent, canActivate: [Aut
 { path: 'login', component: LoginComponent },
 { path: 'register', component: RegisterComponent },
 
-{ path: 'employee', component: EmployeeComponent },
+{ path: 'employee', component: EmployeeComponent ,canActivate: [AuthGuard]},
 
 { path: 'errorPage', component: ErrorComponent },
 
-{path: 'updateEmployee',component:UpdateEmployeeComponent},
+{path: 'updateEmployee',component:UpdateEmployeeComponent,canActivate: [AuthGuard]},
+
+{path: 'searchEmployee',component:EmployeesearchComponent,canActivate: [AuthGuard]},
+
+//
 
 // otherwise redirect to home
 { path: '**', redirectTo: '' }];

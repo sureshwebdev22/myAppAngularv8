@@ -1,12 +1,28 @@
 <!-- nav -->
-<nav class="navbar navbar-expand " style="background-color: rgb(112, 171, 102);" *ngIf="currentUser">
+<!--<nav class="navbar navbar-expand " style="background-color: rgb(112, 171, 102);" *ngIf="currentUser">
   <div class="navbar-nav" style="color: black;">
       <a class="nav-item nav-link" style="color: black; " routerLink="/">Home</a>
       
       <a class="nav-item nav-link" style="color: black; " routerLink="/employee">Employee</a>
       <a class="nav-item nav-link" (click)="logout()">Logout</a>
   </div>
-</nav>
+</nav>-->
+
+<div *ngIf="currentUser" >
+  <app-menu></app-menu>
+ </div>
+<!--<div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown link
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>-->
+
 
 <!-- main app container -->
 <div class="jumbotron">

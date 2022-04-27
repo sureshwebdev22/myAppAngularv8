@@ -1,0 +1,60 @@
+<!--<nav>
+<nav class="navbar navbar-expand " style="background-color: rgb(97, 213, 119);" >
+  <div class="navbar-nav" style="color: black;">
+      <a class="nav-item nav-link" style="color: black; " routerLink="/">Home</a>
+      
+      <a class="nav-item nav-link" style="color: black; " routerLink="/employee">Employee</a>
+      <a class="nav-item nav-link" (click)="logout()">Logout</a>
+  </div>
+
+</nav>
+</nav>-->
+<!--<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/employee">Employee</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+      <div class="dropdown-content">
+        <a href="/employee">Employee</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </li>
+  </ul>-->
+  
+  <nav>
+  <nav  class="navbar navbar-expand " style="background-color: none;">
+    <!-- Brand -->
+    <div class="navbar-nav" >
+    <a class="navbar-brand" style="color: black;" href="/">Home</a>
+  
+    <!-- Links -->
+    <ul class="navbar-nav">
+      
+      
+  
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color: black;">
+          Employee
+        </a>
+        <div class="dropdown-menu"  style="background-color: none;">
+          <a class="dropdown-item" href="/searchEmployee">Employee Search</a>
+          <a class="dropdown-item" href="/employee">Employee Create</a>
+          <a class="dropdown-item" href="/">Employee delete</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="color: black;" href="/">Reserved</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="color: red;" (click)="logout()">Logout</a>
+      </li>
+      
+    </ul>
+    </div>
+    
+  </nav>
+  </nav>
+  
+  
