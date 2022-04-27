@@ -149,5 +149,5 @@ export class EmployeeComponent implements OnInit {
     //  alert(employee.employeename+' ' + employee.address);
     //  this.router.navigateByUrl("/deleteEmployee",{state:employee}) ;
     }
-
+  
 }
